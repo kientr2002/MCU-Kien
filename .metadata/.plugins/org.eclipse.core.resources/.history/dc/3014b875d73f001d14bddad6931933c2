@@ -80,9 +80,9 @@ int main(void)
   int count_red_2 = 5;
   int count_yellow_2 = 2;
   int count_green_2 = 3;
-  int counter_vertical = 5;
+//  int counter_vertical = 5;
   int counter_horizontal = 3;
-  int convert_vertical = 0;
+//  int convert_vertical = 0;
   int convert_horizontal = 0;
   /* USER CODE END Init */
 
