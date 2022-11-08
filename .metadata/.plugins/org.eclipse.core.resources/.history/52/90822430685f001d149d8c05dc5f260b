@@ -1,0 +1,25 @@
+/*
+ * led.h
+ *
+ *  Created on: Nov 8, 2022
+ *      Author: ADMIN
+ */
+
+#ifndef INC_LED_H_
+#define INC_LED_H_
+#include "main.h"
+
+
+#define ON_RED1		0
+#define	ON_YELLOW1	1
+#define	ON_GREEN1	2
+#define ON_RED2		3
+#define	ON_YELLOW2	4
+#define	ON_GREEN2	5
+#define	ON_ALL		6
+#define OFF_ALL		7
+
+
+void displayLED(int led_status);
+
+#endif /* INC_LED_H_ */

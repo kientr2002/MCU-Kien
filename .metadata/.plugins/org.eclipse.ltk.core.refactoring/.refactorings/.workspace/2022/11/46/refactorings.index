@@ -2,3 +2,7 @@
 1667873112297	Delete resource 'lab3/Core/Src/software_timer.c'
 1667873124506	Delete resource 'lab3/Core/Inc/software_timer.h'
 1667873335153	Delete resource 'lab3/Core/Inc/timer.h'
+1667887100249	Delete resource 'lab3/Core/Inc/led_display.h'
+1667887105206	Delete resource 'lab3/Core/Src/led_display.c'
+1667903292458	Delete resource 'lab3/Core/Src/displayLED.c'
+1667903298608	Delete resource 'lab3/Core/Inc/displayLED.h'

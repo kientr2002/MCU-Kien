@@ -1,0 +1,35 @@
+/*
+ * led.c
+ *
+ *  Created on: Nov 8, 2022
+ *      Author: ADMIN
+ */
+
+#include "led.h"
+
+void displayLED(int led_status){
+	switch(led_status){
+	case ON_RED1:
+		//TO DO
+		break;
+	case ON_YELLOW1:
+		//TO DO
+		break;
+	case ON_GREEN1:
+		//TO DO
+		break;
+	case ON_RED2
+		//TO DO
+		break;
+	case ON_YELLOW2:
+		//TO DO
+		break;
+	case ON_GREEN2:
+		//TO DO
+		break;
+	case
+	default:
+		//NOTHING
+		break;
+	}
+}

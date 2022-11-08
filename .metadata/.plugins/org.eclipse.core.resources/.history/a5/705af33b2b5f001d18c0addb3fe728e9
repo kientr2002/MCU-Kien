@@ -1,0 +1,12 @@
+/*
+ * led.c
+ *
+ *  Created on: Nov 8, 2022
+ *      Author: ADMIN
+ */
+
+#include "led.h"
+
+void displayLED(int led_status){
+
+}
