@@ -1,0 +1,43 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 8, 2022
+ *      Author: ADMIN
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include "main.h"
+#include "software_timer.h"
+#include "displayLed.h"
+#include "display7SEG.h"
+#include "input_reading.h"
+#include "led.h"
+
+
+//input_reading.h
+#define NORMAL_STATE GPIO_PIN_SET
+#define PRESSED_STATE GPIO_PIN_RESET
+#define HoldTimer	500
+
+
+//displayLED.h
+#define ON_RED_HORIZONTAL		0
+#define	ON_YELLOW_HORIZONTAL	1
+#define	ON_GREEN_HORIZONTAL		2
+#define ON_RED_VERTICAL			3
+#define	ON_YELLOW_VERTICAL		4
+#define	ON_GREEN_VERTICAL		5
+#define	ON_ALL					6
+#define OFF_ALL					7
+
+
+//display7SEG.h
+#define RED_GREEN				10
+#define RED_YELLOW 				11
+#define GREEN_RED 				12
+#define YELLOW_RED 				13
+
+
+#endif /* INC_GLOBAL_H_ */

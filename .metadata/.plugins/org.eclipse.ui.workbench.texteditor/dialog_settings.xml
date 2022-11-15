@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="MX_TIM2_Init"/>
+		<item key="selection" value="SEGstate"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="MX_TIM2_Init"/>
+			<item value="SEGstate"/>
+			<item value="set1forTimerflag"/>
+			<item value="blink"/>
+			<item value="led"/>
+			<item value="display7SEG"/>
+			<item value="timer3_flag"/>
+			<item value="GPIOA"/>
+			<item value="reading"/>
+			<item value="DURATION_FOR_AUTO_INCREASING"/>
+			<item value=" "/>
+			<item value="delay"/>
+			<item value="DeLay"/>
+			<item value="green1"/>
+			<item value="GREEN1"/>
+			<item value="yellow1"/>
 		</list>
 		<list key="replacehistory">
+			<item value="green_horizontal"/>
+			<item value="yellow_vertical"/>
+			<item value="green_vertical"/>
+			<item value="yellow_horizontal"/>
+			<item value="red_vertical"/>
+			<item value=""/>
+			<item value="red_horizontal"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="801"/>
-		<item key="DIALOG_Y_ORIGIN" value="222"/>
+		<item key="DIALOG_X_ORIGIN" value="921"/>
+		<item key="DIALOG_Y_ORIGIN" value="231"/>
 		<item key="DIALOG_WIDTH" value="336"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

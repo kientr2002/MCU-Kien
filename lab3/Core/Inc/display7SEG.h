@@ -8,10 +8,10 @@
 #ifndef INC_DISPLAY7SEG_H_
 #define INC_DISPLAY7SEG_H_
 
+#include "global.h"
 
 
-void update7SEG(int index);
-void updateBuffer();
 
-
+void display7SEGforMode(int mode);
+void display7SEG();
 #endif /* INC_DISPLAY7SEG_H_ */

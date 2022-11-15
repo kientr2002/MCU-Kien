@@ -1,0 +1,17 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 8, 2022
+ *      Author: ADMIN
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include "main.h"
+#include "software_timer.h"
+#include "displayLed.h"
+#include "display7SEG.h"
+#include "input_reading.h"
+
+#endif /* INC_GLOBAL_H_ */

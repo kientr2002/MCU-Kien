@@ -1,0 +1,93 @@
+/*
+ * input_reading.c
+ *
+ *  Created on: Nov 8, 2022
+ *      Author: ADMIN
+ */
+
+#include "main.h"
+#include "input_reading.h"
+//button1
+int TimerForKeybutton1Press = 0;
+int button1_flag = 0;
+int KeyRegbutton1_0 = NORMAL_STATE;
+int KeyRegbutton1_RESET1 = NORMAL_STATE;
+int KeyRegbutton1_RESET2 = NORMAL_STATE;
+int KeyRegbutton1_RESET3 = NORMAL_STATE;
+//button2
+int TimerForKeybutton2Press = 500;
+int button2_flag = 0;
+int KeyRegbutton2_0 = NORMAL_STATE;
+int KeyRegbutton2_1 = NORMAL_STATE;
+int KeyRegbutton2_2 = NORMAL_STATE;
+int KeyRegbutton2_3 = NORMAL_STATE;
+//button3
+int TimerForKeybutton3Press = 500;
+int button3_flag = 0;
+int KeyRegbutton3_0 = NORMAL_STATE;
+int KeyRegbutton3_1 = NORMAL_STATE;
+int KeyRegbutton3_2 = NORMAL_STATE;
+int KeyRegbutton3_3 = NORMAL_STATE;
+
+//Button is press?
+
+int isbutton1pressed(){
+	if(button1_flag == 1){
+		button1_flag = 0;
+		return 1;
+	}
+	return 0;
+}
+int isbutton2pressed(){
+	if(button2_flag == 1){
+		button2_flag = 0;
+		return 1;
+	}
+	return 0;
+}
+int isbutton3pressed(){
+	if(button3_flag == 1){
+		button3_flag = 0;
+		return 1;
+	}
+	return 0;
+}
+
+//sub key
+void subKeybutton1Process(){
+	//TODO
+	button1_flag = 1;
+}
+void subKeybutton2Process(){
+	//TODO
+	button2_flag = 1;
+}
+void subKeybutton3Process(){
+	//TODO
+	button3_flag = 1;
+}
+
+void input_reading(){
+	//TODO
+	if(isbutton1pressed()){
+		getKeyinputButton1();
+	}
+	if(isbutton2pressed()){
+		getKeyinputButton2();
+	}
+	if(isbutton3pressed()){
+		getKeyinputButton3();
+	}
+}
+
+void getKeyinputButton1(){
+
+}
+
+void getKeyinputButton2(){
+
+}
+
+void getKeyinputButton3(){
+
+}

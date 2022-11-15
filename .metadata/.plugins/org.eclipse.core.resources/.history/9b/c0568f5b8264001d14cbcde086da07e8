@@ -1,0 +1,14 @@
+/*
+ * fsm_button.c
+ *
+ *  Created on: Nov 15, 2022
+ *      Author: ADMIN
+ */
+#include "fsm_button.h"
+
+void fsm_button_run(){
+	if(isbutton1pressed()){
+
+	}
+}
+

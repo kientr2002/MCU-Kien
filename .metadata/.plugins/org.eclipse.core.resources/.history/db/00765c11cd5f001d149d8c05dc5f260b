@@ -1,0 +1,22 @@
+/*
+ * display7SEG.h
+ *
+ *  Created on: Nov 8, 2022
+ *      Author: ADMIN
+ */
+
+#ifndef INC_DISPLAY7SEG_H_
+#define INC_DISPLAY7SEG_H_
+#include "main.h"
+#include "software_timer.h"
+
+#define RED_GREEN 1;
+#define RED_YELLOW 2;
+#define GREEN_RED 3;
+#define YELLOW_RED 4;
+
+void display7SEGforMode(int index);
+void display7SEG();
+void display7SEGper1s();
+void set1forTimerflag();
+#endif /* INC_DISPLAY7SEG_H_ */

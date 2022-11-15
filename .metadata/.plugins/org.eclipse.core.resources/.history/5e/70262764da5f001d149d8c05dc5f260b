@@ -1,0 +1,30 @@
+/*
+ * input_reading.c
+ *
+ *  Created on: Nov 8, 2022
+ *      Author: ADMIN
+ */
+
+#include "main.h"
+#include "input_reading.h"
+//RESET
+int TimerForKeybutton1Press = 0;
+int button1_flag = 0;
+int KeyRegbutton1_0 = NORMAL_STATE;
+int KeyRegbutton1_RESET1 = NORMAL_STATE;
+int KeyRegbutton1_RESET2 = NORMAL_STATE;
+int KeyRegbutton1_RESET3 = NORMAL_STATE;
+//INC
+int TimerForKeybutton2Press = 300;
+int button2_flag = 0;
+int KeyRegbutton2_0 = NORMAL_STATE;
+int KeyRegbutton2_1 = NORMAL_STATE;
+int KeyRegbutton2_2 = NORMAL_STATE;
+int KeyRegbutton2_3 = NORMAL_STATE;
+//DEC
+int TimerForKeybutton3Press = 300;
+int button3_flag = 0;
+int KeyRegbutton3_0 = NORMAL_STATE;
+int KeyRegbutton3_1 = NORMAL_STATE;
+int KeyRegbutton3_2 = NORMAL_STATE;
+int KeyRegbutton3_3 = NORMAL_STATE;

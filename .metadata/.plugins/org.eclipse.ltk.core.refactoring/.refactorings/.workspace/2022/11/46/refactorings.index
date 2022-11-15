@@ -6,3 +6,5 @@
 1667887105206	Delete resource 'lab3/Core/Src/led_display.c'
 1667903292458	Delete resource 'lab3/Core/Src/displayLED.c'
 1667903298608	Delete resource 'lab3/Core/Inc/displayLED.h'
+1667919844003	Delete resource 'lab3/Core/Src/input_processing.c'
+1667919849012	Delete resource 'lab3/Core/Inc/input_processing.h'

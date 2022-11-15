@@ -1,3 +1,10 @@
-input_reading.c:28:6:button_reading	24	static
-input_reading.c:51:15:is_button_pressed	16	static
-input_reading.c:56:15:is_button_pressed_1s	16	static
+input_reading.c:36:5:isbutton1pressed	4	static
+input_reading.c:43:5:isbutton2pressed	4	static
+input_reading.c:50:5:isbutton3pressed	4	static
+input_reading.c:59:6:subKeybutton1Process	4	static
+input_reading.c:63:6:subKeybutton2Process	4	static
+input_reading.c:67:6:subKeybutton3Process	4	static
+input_reading.c:72:6:input_reading	8	static
+input_reading.c:79:6:getKeyinputButton1	8	static
+input_reading.c:104:6:getKeyinputButton2	8	static
+input_reading.c:129:6:getKeyinputButton3	8	static

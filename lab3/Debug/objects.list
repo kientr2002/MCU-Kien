@@ -1,6 +1,7 @@
 "./Core/Src/display7SEG.o"
 "./Core/Src/displayLed.o"
-"./Core/Src/input_processing.o"
+"./Core/Src/fsm_button.o"
+"./Core/Src/global.o"
 "./Core/Src/input_reading.o"
 "./Core/Src/main.o"
 "./Core/Src/software_timer.o"
