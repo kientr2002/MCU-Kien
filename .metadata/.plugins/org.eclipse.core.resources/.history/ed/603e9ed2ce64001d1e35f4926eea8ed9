@@ -1,0 +1,13 @@
+/*
+ * fsm_button.c
+ *
+ *  Created on: Nov 15, 2022
+ *      Author: ADMIN
+ */
+#include <fsm_automatic.h>
+
+
+void fsm_button_run(){
+
+}
+

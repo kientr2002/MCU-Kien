@@ -5,15 +5,9 @@
  *      Author: ADMIN
  */
 #include "display7SEG.h"
-unsigned char num[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
-int state_traffic = RED_GREEN;
-int flagGreen_Yellow = 0;
-int index_horizontal = 5;
-int index_vertical = 9;
-int led_buffer[4] = {0, 5, 0, 3};
-int SEGstate = RED_GREEN;
-int flag_counter = 0;
-void display7SEGforMode(int mode){
+#include "global.h"
+
+void display7SEGforMode(int mode, int counter_horizontal, int counter_vertical){
 	switch(mode){
 	case MODE1:
 		  HAL_GPIO_WritePin(MODE_LED7_0_GPIO_Port, MODE_LED7_0_Pin, SET);
@@ -23,6 +17,8 @@ void display7SEGforMode(int mode){
 		  HAL_GPIO_WritePin(MODE_LED7_4_GPIO_Port, MODE_LED7_4_Pin, SET);
 		  HAL_GPIO_WritePin(MODE_LED7_5_GPIO_Port, MODE_LED7_5_Pin, SET);
 		  HAL_GPIO_WritePin(MODE_LED7_6_GPIO_Port, MODE_LED7_6_Pin, SET);
+		  horizontal_7SEG(counter_horizontal);
+		  vertical_7SEG(counter_vertical);
 		break;
 	case MODE2:
 		  HAL_GPIO_WritePin(MODE_LED7_0_GPIO_Port, MODE_LED7_0_Pin, RESET);
@@ -32,6 +28,8 @@ void display7SEGforMode(int mode){
 		  HAL_GPIO_WritePin(MODE_LED7_4_GPIO_Port, MODE_LED7_4_Pin, RESET);
 		  HAL_GPIO_WritePin(MODE_LED7_5_GPIO_Port, MODE_LED7_5_Pin, SET);
 		  HAL_GPIO_WritePin(MODE_LED7_6_GPIO_Port, MODE_LED7_6_Pin, RESET);
+		  horizontal_7SEG(counter_horizontal);
+		  vertical_7SEG(counter_vertical);
 		break;
 	case MODE3:
 		  HAL_GPIO_WritePin(MODE_LED7_0_GPIO_Port, MODE_LED7_0_Pin, RESET);
@@ -41,6 +39,8 @@ void display7SEGforMode(int mode){
 		  HAL_GPIO_WritePin(MODE_LED7_4_GPIO_Port, MODE_LED7_4_Pin, SET);
 		  HAL_GPIO_WritePin(MODE_LED7_5_GPIO_Port, MODE_LED7_5_Pin, SET);
 		  HAL_GPIO_WritePin(MODE_LED7_6_GPIO_Port, MODE_LED7_6_Pin, RESET);
+		  horizontal_7SEG(counter_horizontal);
+		  vertical_7SEG(counter_vertical);
 		break;
 	case MODE4:
 		  HAL_GPIO_WritePin(MODE_LED7_0_GPIO_Port, MODE_LED7_0_Pin, SET);
@@ -50,6 +50,8 @@ void display7SEGforMode(int mode){
 		  HAL_GPIO_WritePin(MODE_LED7_4_GPIO_Port, MODE_LED7_4_Pin, SET);
 		  HAL_GPIO_WritePin(MODE_LED7_5_GPIO_Port, MODE_LED7_5_Pin, RESET);
 		  HAL_GPIO_WritePin(MODE_LED7_6_GPIO_Port, MODE_LED7_6_Pin, RESET);
+		  horizontal_7SEG(counter_horizontal);
+		  vertical_7SEG(counter_vertical);
 		break;
 	default:
 		  HAL_GPIO_WritePin(MODE_LED7_0_GPIO_Port, MODE_LED7_0_Pin, SET);
@@ -62,117 +64,212 @@ void display7SEGforMode(int mode){
 		break;
 	}
 }
-
-
-void display7SEG(){
-	if(flag_counter == 0){
-		HAL_GPIO_WritePin ( EN0_GPIO_Port, EN0_Pin , RESET );
-		HAL_GPIO_WritePin ( EN1_GPIO_Port, EN1_Pin , SET );
-	} else {
-		HAL_GPIO_WritePin ( EN0_GPIO_Port, EN0_Pin , SET );
-		HAL_GPIO_WritePin ( EN1_GPIO_Port, EN1_Pin , RESET );
+void horizontal_7SEG(int index){
+	switch(index){
+	case 0:
+		  HAL_GPIO_WritePin(LED7h_0_GPIO_Port, LED7h_0_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_1_GPIO_Port, LED7h_1_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_2_GPIO_Port, LED7h_2_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_3_GPIO_Port, LED7h_3_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_4_GPIO_Port, LED7h_4_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_5_GPIO_Port, LED7h_5_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_6_GPIO_Port, LED7h_6_Pin, SET);
+		break;
+	case 1:
+		  HAL_GPIO_WritePin(LED7h_0_GPIO_Port, LED7h_0_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_1_GPIO_Port, LED7h_1_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_2_GPIO_Port, LED7h_2_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_3_GPIO_Port, LED7h_3_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_4_GPIO_Port, LED7h_4_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_5_GPIO_Port, LED7h_5_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_6_GPIO_Port, LED7h_6_Pin, SET);
+		break;
+	case 2:
+		  HAL_GPIO_WritePin(LED7h_0_GPIO_Port, LED7h_0_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_1_GPIO_Port, LED7h_1_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_2_GPIO_Port, LED7h_2_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_3_GPIO_Port, LED7h_3_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_4_GPIO_Port, LED7h_4_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_5_GPIO_Port, LED7h_5_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_6_GPIO_Port, LED7h_6_Pin, RESET);
+		break;
+	case 3:
+		  HAL_GPIO_WritePin(LED7h_0_GPIO_Port, LED7h_0_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_1_GPIO_Port, LED7h_1_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_2_GPIO_Port, LED7h_2_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_3_GPIO_Port, LED7h_3_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_4_GPIO_Port, LED7h_4_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_5_GPIO_Port, LED7h_5_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_6_GPIO_Port, LED7h_6_Pin, RESET);
+		break;
+	case 4:
+		  HAL_GPIO_WritePin(LED7h_0_GPIO_Port, LED7h_0_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_1_GPIO_Port, LED7h_1_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_2_GPIO_Port, LED7h_2_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_3_GPIO_Port, LED7h_3_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_4_GPIO_Port, LED7h_4_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_5_GPIO_Port, LED7h_5_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_6_GPIO_Port, LED7h_6_Pin, RESET);
+		break;
+	case 5:
+		  HAL_GPIO_WritePin(LED7h_0_GPIO_Port, LED7h_0_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_1_GPIO_Port, LED7h_1_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_2_GPIO_Port, LED7h_2_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_3_GPIO_Port, LED7h_3_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_4_GPIO_Port, LED7h_4_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_5_GPIO_Port, LED7h_5_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_6_GPIO_Port, LED7h_6_Pin, RESET);
+		break;
+	case 6:
+		  HAL_GPIO_WritePin(LED7h_0_GPIO_Port, LED7h_0_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_1_GPIO_Port, LED7h_1_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_2_GPIO_Port, LED7h_2_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_3_GPIO_Port, LED7h_3_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_4_GPIO_Port, LED7h_4_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_5_GPIO_Port, LED7h_5_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_6_GPIO_Port, LED7h_6_Pin, RESET);
+		break;
+	case 7:
+		  HAL_GPIO_WritePin(LED7h_0_GPIO_Port, LED7h_0_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_1_GPIO_Port, LED7h_1_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_2_GPIO_Port, LED7h_2_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_3_GPIO_Port, LED7h_3_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_4_GPIO_Port, LED7h_4_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_5_GPIO_Port, LED7h_5_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_6_GPIO_Port, LED7h_6_Pin, SET);
+		break;
+	case 8:
+		  HAL_GPIO_WritePin(LED7h_0_GPIO_Port, LED7h_0_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_1_GPIO_Port, LED7h_1_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_2_GPIO_Port, LED7h_2_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_3_GPIO_Port, LED7h_3_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_4_GPIO_Port, LED7h_4_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_5_GPIO_Port, LED7h_5_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_6_GPIO_Port, LED7h_6_Pin, RESET);
+		break;
+	case 9:
+		  HAL_GPIO_WritePin(LED7h_0_GPIO_Port, LED7h_0_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_1_GPIO_Port, LED7h_1_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_2_GPIO_Port, LED7h_2_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_3_GPIO_Port, LED7h_3_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_4_GPIO_Port, LED7h_4_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_5_GPIO_Port, LED7h_5_Pin, RESET);
+		  HAL_GPIO_WritePin(LED7h_6_GPIO_Port, LED7h_6_Pin, RESET);
+		break;
+	default:
+		  HAL_GPIO_WritePin(LED7h_0_GPIO_Port, LED7h_0_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_1_GPIO_Port, LED7h_1_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_2_GPIO_Port, LED7h_2_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_3_GPIO_Port, LED7h_3_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_4_GPIO_Port, LED7h_4_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_5_GPIO_Port, LED7h_5_Pin, SET);
+		  HAL_GPIO_WritePin(LED7h_6_GPIO_Port, LED7h_6_Pin, SET);
+		break;
 	}
-		switch(SEGstate){
-		case RED_GREEN:
-		displayLED(led_status);
-		if(timer1_flag == 1){
-			if(flag_counter == 0){
-				GPIOB->ODR = num[led_buffer[1]];
-				GPIOA->ODR = num[led_buffer[3]];
-				led_status = TRAFFIC_RED_GREEN;
-				flag_counter = 1;
-			} else {
-				GPIOB->ODR = num[led_buffer[0]];
-				GPIOA->ODR = num[led_buffer[2]];
-				led_buffer[1]--;
-				led_buffer[3]--;
-				if(led_buffer[3] == 0){
-					led_buffer[3] = 2;
-					SEGstate = RED_YELLOW;
-				}
-				flag_counter = 0;
-			}
-			setTimer1(500);
+}
 
-		  }
+void vertical_7SEG(int index){
+	switch(index){
+		case 0:
+			  HAL_GPIO_WritePin(LED7v_0_GPIO_Port, LED7v_0_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_1_GPIO_Port, LED7v_1_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_2_GPIO_Port, LED7v_2_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_3_GPIO_Port, LED7v_3_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_4_GPIO_Port, LED7v_4_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_5_GPIO_Port, LED7v_5_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_6_GPIO_Port, LED7v_6_Pin, SET);
 			break;
-
-		case RED_YELLOW:
-			displayLED(led_status);
-			if(timer1_flag == 1){
-				if(flag_counter == 0){
-					GPIOB->ODR = num[led_buffer[1]];
-					GPIOA->ODR = num[led_buffer[3]];
-					led_status = TRAFFIC_RED_YELLOW;
-					flag_counter = 1;
-				} else {
-					GPIOB->ODR = num[led_buffer[0]];
-					GPIOA->ODR = num[led_buffer[2]];
-					led_buffer[1]--;
-					led_buffer[3]--;
-					if(led_buffer[1] == 0){
-						led_buffer[1] = 3;
-						if(led_buffer[3] == 0){
-							led_buffer[3] = 5;
-						}
-						SEGstate = GREEN_RED;
-					}
-					flag_counter = 0;
-				}
-				setTimer1(500);
-			}
-
+		case 1:
+			  HAL_GPIO_WritePin(LED7v_0_GPIO_Port, LED7v_0_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_1_GPIO_Port, LED7v_1_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_2_GPIO_Port, LED7v_2_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_3_GPIO_Port, LED7v_3_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_4_GPIO_Port, LED7v_4_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_5_GPIO_Port, LED7v_5_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_6_GPIO_Port, LED7v_6_Pin, SET);
 			break;
-		case GREEN_RED:
-			displayLED(led_status);
-			if(timer1_flag == 1){
-				if(flag_counter == 0){
-					GPIOB->ODR = num[led_buffer[1]];
-					GPIOA->ODR = num[led_buffer[3]];
-					led_status = TRAFFIC_GREEN_RED;
-					flag_counter = 1;
-				} else {
-					GPIOB->ODR = num[led_buffer[0]];
-					GPIOA->ODR = num[led_buffer[2]];
-					led_buffer[1]--;
-					led_buffer[3]--;
-					if(led_buffer[1] == 0){
-						led_buffer[1] = 2;
-						SEGstate = YELLOW_RED;
-					}
-					flag_counter = 0;
-				}
-				setTimer1(500);
-			  }
+		case 2:
+			  HAL_GPIO_WritePin(LED7v_0_GPIO_Port, LED7v_0_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_1_GPIO_Port, LED7v_1_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_2_GPIO_Port, LED7v_2_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_3_GPIO_Port, LED7v_3_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_4_GPIO_Port, LED7v_4_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_5_GPIO_Port, LED7v_5_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_6_GPIO_Port, LED7v_6_Pin, RESET);
 			break;
-		case YELLOW_RED:
-			displayLED(led_status);
-			if(timer1_flag == 1){
-						if(flag_counter == 0){
-							GPIOB->ODR = num[led_buffer[1]];
-							GPIOA->ODR = num[led_buffer[3]];
-							led_status = TRAFFIC_YELLOW_RED;
-							flag_counter = 1;
-						} else {
-							GPIOB->ODR = num[led_buffer[0]];
-							GPIOA->ODR = num[led_buffer[2]];
-							led_buffer[1]--;
-							led_buffer[3]--;
-							if(led_buffer[3] == 0){
-								led_buffer[3] = 3;
-								if(led_buffer[1] == 0){
-									led_buffer[1] = 5;
-								}
-								SEGstate = RED_GREEN;
-							}
-							flag_counter = 0;
-						}
-						setTimer1(500);
-					}
+		case 3:
+			  HAL_GPIO_WritePin(LED7v_0_GPIO_Port, LED7v_0_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_1_GPIO_Port, LED7v_1_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_2_GPIO_Port, LED7v_2_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_3_GPIO_Port, LED7v_3_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_4_GPIO_Port, LED7v_4_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_5_GPIO_Port, LED7v_5_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_6_GPIO_Port, LED7v_6_Pin, RESET);
+			break;
+		case 4:
+			  HAL_GPIO_WritePin(LED7v_0_GPIO_Port, LED7v_0_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_1_GPIO_Port, LED7v_1_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_2_GPIO_Port, LED7v_2_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_3_GPIO_Port, LED7v_3_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_4_GPIO_Port, LED7v_4_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_5_GPIO_Port, LED7v_5_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_6_GPIO_Port, LED7v_6_Pin, RESET);
+			break;
+		case 5:
+			  HAL_GPIO_WritePin(LED7v_0_GPIO_Port, LED7v_0_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_1_GPIO_Port, LED7v_1_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_2_GPIO_Port, LED7v_2_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_3_GPIO_Port, LED7v_3_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_4_GPIO_Port, LED7v_4_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_5_GPIO_Port, LED7v_5_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_6_GPIO_Port, LED7v_6_Pin, RESET);
+			break;
+		case 6:
+			  HAL_GPIO_WritePin(LED7v_0_GPIO_Port, LED7v_0_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_1_GPIO_Port, LED7v_1_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_2_GPIO_Port, LED7v_2_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_3_GPIO_Port, LED7v_3_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_4_GPIO_Port, LED7v_4_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_5_GPIO_Port, LED7v_5_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_6_GPIO_Port, LED7v_6_Pin, RESET);
+			break;
+		case 7:
+			  HAL_GPIO_WritePin(LED7v_0_GPIO_Port, LED7v_0_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_1_GPIO_Port, LED7v_1_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_2_GPIO_Port, LED7v_2_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_3_GPIO_Port, LED7v_3_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_4_GPIO_Port, LED7v_4_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_5_GPIO_Port, LED7v_5_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_6_GPIO_Port, LED7v_6_Pin, SET);
+			break;
+		case 8:
+			  HAL_GPIO_WritePin(LED7v_0_GPIO_Port, LED7v_0_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_1_GPIO_Port, LED7v_1_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_2_GPIO_Port, LED7v_2_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_3_GPIO_Port, LED7v_3_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_4_GPIO_Port, LED7v_4_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_5_GPIO_Port, LED7v_5_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_6_GPIO_Port, LED7v_6_Pin, RESET);
+			break;
+		case 9:
+			  HAL_GPIO_WritePin(LED7v_0_GPIO_Port, LED7v_0_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_1_GPIO_Port, LED7v_1_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_2_GPIO_Port, LED7v_2_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_3_GPIO_Port, LED7v_3_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_4_GPIO_Port, LED7v_4_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_5_GPIO_Port, LED7v_5_Pin, RESET);
+			  HAL_GPIO_WritePin(LED7v_6_GPIO_Port, LED7v_6_Pin, RESET);
 			break;
 		default:
+			  HAL_GPIO_WritePin(LED7v_0_GPIO_Port, LED7v_0_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_1_GPIO_Port, LED7v_1_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_2_GPIO_Port, LED7v_2_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_3_GPIO_Port, LED7v_3_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_4_GPIO_Port, LED7v_4_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_5_GPIO_Port, LED7v_5_Pin, SET);
+			  HAL_GPIO_WritePin(LED7v_6_GPIO_Port, LED7v_6_Pin, SET);
 			break;
 		}
-
 }
+
 

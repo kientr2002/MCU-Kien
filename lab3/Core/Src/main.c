@@ -18,13 +18,13 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <fsm_automatic.h>
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "input_reading.h"
 #include "software_timer.h"
-#include "fsm_button.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,10 +96,25 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer1(100);
+  if(status_mode == MODE1){
+	  setTimer1(100);
+  } else if(status_mode == MODE2){
+	  setTimer2(100);
+  } else if(status_mode == MODE3){
+	  setTimer3(100);
+  } else {
+	  setTimer4(100);
+  }
+
+
   while (1)
   {
+	  fsm_mode_run();
 	  fsm_button_run();
+	  display();
+
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

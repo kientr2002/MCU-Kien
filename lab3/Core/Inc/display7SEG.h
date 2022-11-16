@@ -12,6 +12,7 @@
 
 
 
-void display7SEGforMode(int mode);
-void display7SEG();
+void display7SEGforMode(int mode, int counter_horizontal, int counter_vertical);
+void horizontal_7SEG(int counter_horizontal);
+void vertical_7SEG(int counter_vertical);
 #endif /* INC_DISPLAY7SEG_H_ */

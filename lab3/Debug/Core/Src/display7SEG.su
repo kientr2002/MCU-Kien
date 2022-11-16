@@ -1,2 +1,3 @@
-display7SEG.c:16:6:display7SEGforMode	16	static
-display7SEG.c:67:6:display7SEG	8	static
+display7SEG.c:10:6:display7SEGforMode	24	static
+display7SEG.c:67:6:horizontal_7SEG	16	static
+display7SEG.c:171:6:vertical_7SEG	16	static

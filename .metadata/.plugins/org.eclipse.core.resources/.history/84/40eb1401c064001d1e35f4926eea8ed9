@@ -1,0 +1,22 @@
+/*
+ * fsm_button.c
+ *
+ *  Created on: Nov 15, 2022
+ *      Author: ADMIN
+ */
+#include "fsm_button.h"
+int mode = MODE1;
+
+
+void fsm_button_run(){
+	display7SEGforMode(mode);
+	switch(mode){
+	case MODE1:
+		display7SEG();
+		if(isbutton1pressed() == 1){
+			mode = 2;
+		}
+		break;
+	}
+}
+

@@ -1,0 +1,30 @@
+/*
+ * fsm_button.c
+ *
+ *  Created on: Nov 15, 2022
+ *      Author: ADMIN
+ */
+#include <fsm_automatic.h>
+
+
+void fsm_button_run(){
+	switch(status_mode){
+	case MODE1:
+		if(isbutton1pressed() == 1){
+			status_mode = MODE2;
+		}
+		break;
+	case MODE2:
+
+		break;
+	case MODE3:
+
+		break;
+	case MODE4:
+
+		break;
+	default:
+		break;
+	}
+}
+

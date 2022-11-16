@@ -8,6 +8,8 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="button1_flag"/>
+			<item value="index_horizontal"/>
 			<item value="SEGstate"/>
 			<item value="set1forTimerflag"/>
 			<item value="blink"/>
@@ -21,8 +23,6 @@
 			<item value="delay"/>
 			<item value="DeLay"/>
 			<item value="green1"/>
-			<item value="GREEN1"/>
-			<item value="yellow1"/>
 		</list>
 		<list key="replacehistory">
 			<item value="green_horizontal"/>

@@ -1,0 +1,53 @@
+/*
+ * counter.c
+ *
+ *  Created on: Nov 15, 2022
+ *      Author: ADMIN
+ */
+#include "counter.h"
+
+void counter_horizontal(){
+	if(status_horizontal == RED){
+		led_buffer[1]--;
+		if(led_buffer[1] == 0){
+			led_buffer[1] = 3;
+			status_horizontal = GREEN;
+		}
+	} else if(status_horizontal == GREEN){
+		led_buffer[1]--;
+		if(led_buffer[1] == 0){
+			led_buffer[1] = 2;
+			status_horizontal = YELLOW;
+		}
+	} else {
+		led_buffer[1]--;
+		if(led_buffer[1] == 0){
+			led_buffer[1] = 5;
+			status_horizontal = RED;
+		}
+	}
+}
+
+void counter_vertical(){
+	if(status_vertical == RED){
+		led_buffer[3]--;
+		if(led_buffer[3] == 0){
+			led_buffer[3] = 3;
+			status_vertical = GREEN;
+		}
+	} else if(status_vertical == GREEN){
+		led_buffer[3]--;
+		if(led_buffer[3] == 0){
+			led_buffer[3] = 2;
+			status_vertical = YELLOW;
+		}
+	} else {
+		led_buffer[3]--;
+		if(led_buffer[3] == 0){
+			led_buffer[3] = 5;
+			status_vertical = RED;
+		}
+	}
+}
+
+

@@ -20,6 +20,9 @@ int timer2_flag = 0;
 int timer3_counter = 0;
 int timer3_flag = 0;
 
+int timer4_counter = 0;
+int timer4_flag = 0;
+
 int timerLED_counter = 0;
 int timerLED_flag = 0;
 
@@ -36,6 +39,10 @@ void setTimer2(int duration){
 void setTimer3(int duration){
 	timer3_counter = duration/TICK;
 	timer3_flag = 0;
+}
+void setTimer4(int duration){
+	timer4_counter = duration/TICK;
+	timer4_flag = 0;
 }
 void setTimerLED(int duration){
 	timerLED_counter = duration/TICKLED;
@@ -60,6 +67,12 @@ void timerRun(){
 		timer3_counter--;
 		if(timer3_counter <= 0){
 			timer3_flag = 1;
+		}
+	}
+	if(timer4_counter > 0){
+		timer4_counter--;
+		if(timer4_counter <= 0){
+			timer4_flag = 1;
 		}
 	}
 	if(timerLED_counter > 0){

@@ -23,10 +23,11 @@ Core/Src/timer.o: ../Core/Src/timer.c ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Core/Inc/input_reading.h ../Core/Inc/global.h ../Core/Inc/main.h \
+ ../Core/Inc/input_reading.h ../Core/Inc/global.h \
+ ../Core/Inc/fsm_automatic.h ../Core/Inc/input_reading.h \
+ ../Core/Inc/display7SEG.h ../Core/Inc/main.h \
  ../Core/Inc/software_timer.h ../Core/Inc/displayLed.h \
- ../Core/Inc/display7SEG.h ../Core/Inc/input_reading.h \
- ../Core/Inc/software_timer.h
+ ../Core/Inc/display.h ../Core/Inc/counter.h ../Core/Inc/software_timer.h
 
 ../Core/Inc/main.h:
 
@@ -82,14 +83,20 @@ Core/Src/timer.o: ../Core/Src/timer.c ../Core/Inc/main.h \
 
 ../Core/Inc/global.h:
 
+../Core/Inc/fsm_automatic.h:
+
+../Core/Inc/input_reading.h:
+
+../Core/Inc/display7SEG.h:
+
 ../Core/Inc/main.h:
 
 ../Core/Inc/software_timer.h:
 
 ../Core/Inc/displayLed.h:
 
-../Core/Inc/display7SEG.h:
+../Core/Inc/display.h:
 
-../Core/Inc/input_reading.h:
+../Core/Inc/counter.h:
 
 ../Core/Inc/software_timer.h:

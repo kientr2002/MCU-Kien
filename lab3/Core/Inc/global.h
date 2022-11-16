@@ -8,12 +8,14 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
+#include <fsm_automatic.h>
 #include "main.h"
 #include "software_timer.h"
 #include "displayLed.h"
 #include "display7SEG.h"
 #include "input_reading.h"
-
+#include "display.h"
+#include "counter.h"
 
 
 //input_reading.h
@@ -26,18 +28,7 @@
 #define RED						0
 #define	YELLOW					1
 #define	GREEN					2
-#define TRAFFIC_RED_GREEN		3
-#define TRAFFIC_RED_YELLOW 		4
-#define TRAFFIC_GREEN_RED 		5
-#define TRAFFIC_YELLOW_RED 		6
 
-
-
-//display7SEG.h
-#define RED_GREEN				10
-#define RED_YELLOW 				11
-#define GREEN_RED 				12
-#define YELLOW_RED 				13
 
 //display7SEGforMode
 #define MODE1					21
@@ -45,9 +36,21 @@
 #define MODE3					23
 #define MODE4					24
 
+//Mode display
+#define MODEDISPLAY1			31
+#define MODEDISPLAY2			32
 
-int ledstate;
-int led_status;
+extern int status_horizontal;
+extern int status_vertical;
+extern int led_buffer[4];
+extern int status_mode;
+extern int display_mode;
+extern int convert_flag;
+extern int MAX_RED;
+extern int MAX_YELLOW;
+extern int MAX_GREEN;
+extern int convert_led_horizontal;
+extern int convert_led_vertical;
 extern int CYCLE;
 
 #endif /* INC_GLOBAL_H_ */

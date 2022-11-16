@@ -1,0 +1,79 @@
+/*
+ * counter.c
+ *
+ *  Created on: Nov 15, 2022
+ *      Author: ADMIN
+ */
+#include "counter.h"
+int convert_counter = 0;
+void counter_horizontal(){
+	if(status_horizontal == RED){
+		led_buffer[1]--;
+		if(led_buffer[1] == 0){
+			if(led_buffer[0] == 0){
+				led_buffer[1] = MAX_GREEN;
+				status_horizontal = GREEN;
+				convert_led_horizontal = 1;
+			} else {
+				if(convert_counter == 0){
+					convert_counter = 1;
+				} else {
+//					led_buffer[0]--;
+					led_buffer[1] = 9;
+//					convert_counter = 0;
+				}
+			}
+		}
+	} else if(status_horizontal == GREEN){
+		led_buffer[1]--;
+		if(led_buffer[1] == 0){
+			if(led_buffer[0] == 0){
+			led_buffer[1] = MAX_YELLOW;
+			status_horizontal = YELLOW;
+			convert_led_horizontal = 1;
+			}
+		}
+	} else {
+		led_buffer[1]--;
+		if(led_buffer[1] == 0){
+			if(led_buffer[0] == 0){
+			led_buffer[1] = MAX_RED;
+			status_horizontal = RED;
+			convert_led_horizontal = 1;
+			}
+		}
+	}
+}
+
+void counter_vertical(){
+	if(status_vertical == RED){
+		led_buffer[3]--;
+		if(led_buffer[3] == 0){
+			if(led_buffer[2] == 0){
+			led_buffer[3] = MAX_GREEN;
+			status_vertical = GREEN;
+			convert_led_vertical = 1;
+			}
+		}
+	} else if(status_vertical == GREEN){
+		led_buffer[3]--;
+		if(led_buffer[3] == 0){
+			if(led_buffer[2] == 0){
+			led_buffer[3] = MAX_YELLOW;
+			status_vertical = YELLOW;
+			convert_led_vertical = 1;
+			}
+		}
+	} else {
+		led_buffer[3]--;
+		if(led_buffer[3] == 0){
+			if(led_buffer[2] == 0){
+			led_buffer[3] = MAX_RED;
+			status_vertical = RED;
+			convert_led_vertical = 1;
+			}
+		}
+	}
+}
+
+

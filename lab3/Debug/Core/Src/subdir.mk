@@ -5,9 +5,11 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/counter.c \
+../Core/Src/display.c \
 ../Core/Src/display7SEG.c \
 ../Core/Src/displayLed.c \
-../Core/Src/fsm_button.c \
+../Core/Src/fsm_automatic.c \
 ../Core/Src/global.c \
 ../Core/Src/input_reading.c \
 ../Core/Src/main.c \
@@ -20,9 +22,11 @@ C_SRCS += \
 ../Core/Src/timer.c 
 
 OBJS += \
+./Core/Src/counter.o \
+./Core/Src/display.o \
 ./Core/Src/display7SEG.o \
 ./Core/Src/displayLed.o \
-./Core/Src/fsm_button.o \
+./Core/Src/fsm_automatic.o \
 ./Core/Src/global.o \
 ./Core/Src/input_reading.o \
 ./Core/Src/main.o \
@@ -35,9 +39,11 @@ OBJS += \
 ./Core/Src/timer.o 
 
 C_DEPS += \
+./Core/Src/counter.d \
+./Core/Src/display.d \
 ./Core/Src/display7SEG.d \
 ./Core/Src/displayLed.d \
-./Core/Src/fsm_button.d \
+./Core/Src/fsm_automatic.d \
 ./Core/Src/global.d \
 ./Core/Src/input_reading.d \
 ./Core/Src/main.d \

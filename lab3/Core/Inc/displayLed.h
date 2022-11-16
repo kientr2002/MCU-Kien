@@ -15,6 +15,11 @@
 
 
 
-void displayLED(int led_status);
+void led_horizontal();
+void led_vertical();
+void auto_red();
+void auto_yellow();
+void auto_green();
+void auto_off();
 
 #endif /* INC_DISPLAYLED_H_ */

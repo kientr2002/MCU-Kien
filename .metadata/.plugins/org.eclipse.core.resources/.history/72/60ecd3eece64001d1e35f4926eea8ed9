@@ -1,0 +1,13 @@
+/*
+ * global.c
+ *
+ *  Created on: Nov 8, 2022
+ *      Author: ADMIN
+ */
+#include "global.h"
+
+int status_vertical = RED;
+int counter_horizontal = 5;
+int status_horizontal = GREEN;
+int counter_vertical = 3;
+int led_buffer[4] = {0, 5, 0, 3};
