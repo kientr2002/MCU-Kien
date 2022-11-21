@@ -1,44 +1,25 @@
-17:20:14 **** Incremental Build of configuration Debug for project lab4 ****
+18:43:26 **** Incremental Build of configuration Debug for project lab4 ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc "../Core/Src/sch.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/sch.d" -MT"Core/Src/sch.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sch.o"
-In file included from ../Core/Src/main.c:25:
-../Core/Inc/sch.h:32:37: error: unknown type name 'tByte'
-   32 | unsigned char SCH_Delete_Task(const tByte TASK_INDEX);
-      |                                     ^~~~~
-In file included from ../Core/Src/sch.c:7:
-../Core/Inc/sch.h:32:37: error: unknown type name 'tByte'
-   32 | unsigned char SCH_Delete_Task(const tByte TASK_INDEX);
-      |                                     ^~~~~
 ../Core/Src/sch.c: In function 'SCH_Init':
+../Core/Src/sch.c:14:9: warning: implicit declaration of function 'SCH_Delete_Task' [-Wimplicit-function-declaration]
+   14 |         SCH_Delete_Task(i);
+      |         ^~~~~~~~~~~~~~~
 ../Core/Src/sch.c:20:5: warning: implicit declaration of function 'Timer_init' [-Wimplicit-function-declaration]
    20 |     Timer_init();
       |     ^~~~~~~~~~
-../Core/Src/sch.c:21:5: warning: implicit declaration of function 'Watchdog_init' [-Wimplicit-function-declaration]
-   21 |     Watchdog_init();
-      |     ^~~~~~~~~~~~~
-../Core/Src/sch.c: At top level:
-../Core/Src/sch.c:24:15: error: conflicting types for 'SCH_Add_Task'
-   24 | unsigned char SCH_Add_Task(void (* pFunction)(), unsigned int DELAY, unsigned int PERIOD)
-      |               ^~~~~~~~~~~~
-In file included from ../Core/Src/sch.c:7:
-../Core/Inc/sch.h:27:6: note: previous declaration of 'SCH_Add_Task' was here
-   27 | void SCH_Add_Task ( void (*pFunction)() ,
-      |      ^~~~~~~~~~~~
-../Core/Src/sch.c: In function 'SCH_Add_Task':
-../Core/Src/sch.c:37:22: warning: assignment to 'unsigned char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
-   37 |         Error_code_G = "ERROR_SCH_TOO_MANY_TASKS";
-      |                      ^
 ../Core/Src/main.c: In function 'main':
 ../Core/Src/main.c:99:2: warning: implicit declaration of function 'System_Initialization' [-Wimplicit-function-declaration]
    99 |  System_Initialization();
       |  ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:103:15: error: 'Led_Display' undeclared (first use in this function)
-  103 |  SCH_Add_Task(Led_Display,0,1000);
-      |               ^~~~~~~~~~~
-../Core/Src/main.c:103:15: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
-make: *** Waiting for unfinished jobs....
+../Core/Src/sch.c:21:5: warning: implicit declaration of function 'Watchdog_init' [-Wimplicit-function-declaration]
+   21 |     Watchdog_init();
+      |     ^~~~~~~~~~~~~
+../Core/Src/sch.c: In function 'SCH_Add_Task':
+../Core/Src/sch.c:37:22: warning: assignment to 'unsigned char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+   37 |         Error_code_G = "ERROR_SCH_TOO_MANY_TASKS";
+      |                      ^
 ../Core/Src/sch.c: In function 'SCH_Dispatch_Tasks':
 ../Core/Src/sch.c:89:5: warning: implicit declaration of function 'SCH_Report_Status' [-Wimplicit-function-declaration]
    89 |     SCH_Report_Status();
@@ -46,22 +27,21 @@ make: *** Waiting for unfinished jobs....
 ../Core/Src/sch.c:91:5: warning: implicit declaration of function 'SCH_Go_To_Sleep' [-Wimplicit-function-declaration]
    91 |     SCH_Go_To_Sleep();
       |     ^~~~~~~~~~~~~~~
-../Core/Src/sch.c: At top level:
-../Core/Src/sch.c:94:37: error: unknown type name 'tByte'
-   94 | unsigned char SCH_Delete_Task(const tByte TASK_INDEX){
-      |                                     ^~~~~
-../Core/Src/sch.c: In function 'SCH_Delete_Task':
-../Core/Src/sch.c:100:22: warning: assignment to 'unsigned char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
-  100 |         Error_code_G = "ERROR_SCH_CANNOT_DELETE_TASK";
-      |                      ^
-../Core/Src/sch.c:103:21: warning: assignment to 'unsigned char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
-  103 |         Return_code = "RETURN_ERROR";
-      |                     ^
-../Core/Src/sch.c:105:21: warning: assignment to 'unsigned char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
-  105 |         Return_code = "RETURN_NORMA";
-      |                     ^
-make: *** [Core/Src/subdir.mk:40: Core/Src/sch.o] Error 1
+arm-none-eabi-gcc -o "lab4.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Workspace\VXL\Lab 4\Code\lab4\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab4.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+e:\program files (x86)\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/sch.o:D:/Workspace/VXL/Lab 4/Code/lab4/Debug/../Core/Inc/sch.h:24: multiple definition of `Error_code_G'; ./Core/Src/main.o:D:/Workspace/VXL/Lab 4/Code/lab4/Debug/../Core/Inc/sch.h:24: first defined here
+e:\program files (x86)\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/main.o: in function `main':
+D:/Workspace/VXL/Lab 4/Code/lab4/Debug/../Core/Src/main.c:99: undefined reference to `System_Initialization'
+e:\program files (x86)\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/sch.o: in function `SCH_Init':
+D:/Workspace/VXL/Lab 4/Code/lab4/Debug/../Core/Src/sch.c:14: undefined reference to `SCH_Delete_Task'
+e:\program files (x86)\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: D:/Workspace/VXL/Lab 4/Code/lab4/Debug/../Core/Src/sch.c:20: undefined reference to `Timer_init'
+e:\program files (x86)\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: D:/Workspace/VXL/Lab 4/Code/lab4/Debug/../Core/Src/sch.c:21: undefined reference to `Watchdog_init'
+e:\program files (x86)\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/sch.o: in function `SCH_Dispatch_Tasks':
+D:/Workspace/VXL/Lab 4/Code/lab4/Debug/../Core/Src/sch.c:84: undefined reference to `SCH_Delete_Task'
+e:\program files (x86)\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: D:/Workspace/VXL/Lab 4/Code/lab4/Debug/../Core/Src/sch.c:89: undefined reference to `SCH_Report_Status'
+e:\program files (x86)\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: D:/Workspace/VXL/Lab 4/Code/lab4/Debug/../Core/Src/sch.c:91: undefined reference to `SCH_Go_To_Sleep'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:68: lab4.elf] Error 1
 "make -j12 all" terminated with exit code 2. Build might be incomplete.
 
-17:20:15 Build Failed. 8 errors, 9 warnings. (took 1s.349ms)
+18:43:28 Build Failed. 12 errors, 7 warnings. (took 1s.623ms)
 

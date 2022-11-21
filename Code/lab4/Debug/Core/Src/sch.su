@@ -1,0 +1,9 @@
+sch.c:11:6:SCH_Init	16	static
+sch.c:24:15:SCH_Add_Task	32	static
+sch.c:50:6:SCH_Update	16	static
+sch.c:72:6:SCH_Dispatch_Tasks	16	static
+sch.c:94:6:LED_RED_ON	4	static
+sch.c:97:6:LED_YELLOW_ON	4	static
+sch.c:100:6:LED_GREEN_ON	4	static
+sch.c:103:6:LED_BLUE_ON	4	static
+sch.c:106:6:LED_WHITE_ON	4	static

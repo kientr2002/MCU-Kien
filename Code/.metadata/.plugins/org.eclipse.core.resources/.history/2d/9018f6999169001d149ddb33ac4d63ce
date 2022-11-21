@@ -28,10 +28,6 @@ unsigned char SCH_Add_Task(void (* pFunction)(), unsigned int DELAY, unsigned in
 void SCH_Update(void);
 void SCH_Dispatch_Tasks(void);
 
-void LED_RED_ON();
-void LED_YELLOW_ON();
-void LED_GREEN_ON();
-void LED_BLUE_ON();
-void LED_WHITE_ON();
+
 
 #endif /* INC_SCH_H_ */

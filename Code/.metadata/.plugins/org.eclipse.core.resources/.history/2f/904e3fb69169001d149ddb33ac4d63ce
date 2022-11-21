@@ -100,7 +100,7 @@ int main(void)
   //Init a schedule
 	SCH_Init();
   //Add a task to repeatly call in every 1 second.
-	SCH_Add_Task(LED_RED_ON,0,500);
+	SCH_Add_Task(Led_Display,0,1000);
   while (1)
   {
 	  SCH_Dispatch_Tasks();

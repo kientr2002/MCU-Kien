@@ -24,14 +24,12 @@ typedef struct{
 unsigned char Error_code_G = 0;
 
 void SCH_Init(void);
-unsigned char SCH_Add_Task(void (* pFunction)(), unsigned int DELAY, unsigned int PERIOD);
+void SCH_Add_Task ( void (*pFunction)() ,
+					uint32_t DELAY,
+					uint32_t PERIOD);
 void SCH_Update(void);
 void SCH_Dispatch_Tasks(void);
 
-void LED_RED_ON();
-void LED_YELLOW_ON();
-void LED_GREEN_ON();
-void LED_BLUE_ON();
-void LED_WHITE_ON();
+
 
 #endif /* INC_SCH_H_ */

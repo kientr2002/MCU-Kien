@@ -91,19 +91,7 @@ void SCH_Dispatch_Tasks(void)
     SCH_Go_To_Sleep();
 }
 
-void LED_RED_ON(){
-
-}
-void LED_YELLOW_ON(){
-
-}
-void LED_GREEN_ON(){
-
-}
-void LED_BLUE_ON(){
-
-}
-void LED_WHITE_ON(){
-
+void LED_0.5s(){
+	HAL_GPIO_
 }
 
