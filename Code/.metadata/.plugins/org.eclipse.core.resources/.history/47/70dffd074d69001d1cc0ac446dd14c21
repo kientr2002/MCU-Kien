@@ -1,0 +1,9 @@
+/*
+ * sch.c
+ *
+ *  Created on: Nov 21, 2022
+ *      Author: ADMIN
+ */
+sTask SCH_tasks_G[SCH_MAX_TASKS];
+
+

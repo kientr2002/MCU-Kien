@@ -1,0 +1,40 @@
+/*
+ * sch.h
+ *
+ *  Created on: Nov 21, 2022
+ *      Author: ADMIN
+ */
+
+#ifndef INC_SCH_H_
+#define INC_SCH_H_
+#include "main.h"
+#include "stdint.h"
+
+
+typedef struct {
+    // Pointer to the task (must be a 'void (void)' function)
+	void ( * pTask)(void);
+	// Delay (ticks) until the function will (next) be run
+	uint32_t Delay;
+	// Interval (ticks) between subsequent runs.
+	uint32_t Period;
+	// Incremented (by scheduler) when task is due to execute
+	uint8_t RunMe;
+	//This is a hint to solve the question below.
+	uint32_t TaskID;
+} sTask;
+
+// MUST BE ADJUSTED FOR EACH NEW PROJECT
+#define SCH_MAX_TASKS 			40
+#define	NO_TASK_ID				0
+
+unsigned char Error_code_G = 0;
+
+void SCH_Init(void);
+void SCH_Add_Task (void (*pFunction)(), uint32_t DELAY, uint32_t PERIOD);
+void SCH_Update(void);
+void SCH_Dispatch_Tasks(void);
+void SCH_Delete_Task(const unsigned int TASK_INDEX);
+
+
+#endif /* INC_SCH_H_ */
