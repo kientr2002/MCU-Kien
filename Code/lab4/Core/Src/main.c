@@ -95,12 +95,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  //Init all the requirments for the system to run
-	System_Initialization();
   //Init a schedule
 	SCH_Init();
-  //Add a task to repeatly call in every 1 second.
-	SCH_Add_Task(LED_RED_ON,0,500);
+  //Add a task to repeatly call.
+	SCH_Add_Task(LED_RED_ON,5,50);
+	SCH_Add_Task(LED_YELLOW_ON,10,100);
+	SCH_Add_Task(LED_GREEN_ON,15,150);
+	SCH_Add_Task(LED_BLUE_ON,20,200);
+	SCH_Add_Task(LED_WHITE_ON,25,250);
   while (1)
   {
 	  SCH_Dispatch_Tasks();
