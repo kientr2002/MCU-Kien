@@ -98,7 +98,7 @@ int main(void)
   //Init a schedule
 	SCH_Init();
   //Add a task to repeatly call.
-	timer1_flag = 1;
+	setTimer1(100);
 	SCH_Add_Task(LED_RED_ON,5,50);
 	SCH_Add_Task(LED_YELLOW_ON,0,100);
 	SCH_Add_Task(LED_GREEN_ON,0,150);
@@ -106,10 +106,6 @@ int main(void)
 	SCH_Add_Task(LED_WHITE_ON,0,250);
   while (1)
   {
-	  if(timer1_flag == 1){
-		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		setTimer1(1000);
-	}
 	  SCH_Dispatch_Tasks();
     /* USER CODE END WHILE */
 
@@ -228,9 +224,8 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim ){
-	timer1_run();
 	SCH_Update();
-
+	timer1_run();
 }
 /* USER CODE END 4 */
 

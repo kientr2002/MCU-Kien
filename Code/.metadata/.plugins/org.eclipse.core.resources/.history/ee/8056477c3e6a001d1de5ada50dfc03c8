@@ -100,17 +100,33 @@ int main(void)
   //Add a task to repeatly call.
 	timer1_flag = 1;
 	SCH_Add_Task(LED_RED_ON,5,50);
-	SCH_Add_Task(LED_YELLOW_ON,0,100);
-	SCH_Add_Task(LED_GREEN_ON,0,150);
-	SCH_Add_Task(LED_BLUE_ON,0,200);
-	SCH_Add_Task(LED_WHITE_ON,0,250);
-  while (1)
-  {
 	  if(timer1_flag == 1){
 		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		setTimer1(1000);
+		setTimer1(200);
 	}
-	  SCH_Dispatch_Tasks();
+	SCH_Add_Task(LED_YELLOW_ON,0,100);
+	  if(timer1_flag == 1){
+		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+		setTimer1(200);
+	}
+	SCH_Add_Task(LED_GREEN_ON,0,150);
+	  if(timer1_flag == 1){
+		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+		setTimer1(200);
+	}
+	SCH_Add_Task(LED_BLUE_ON,0,200);
+	  if(timer1_flag == 1){
+		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+		setTimer1(200);
+	}
+	SCH_Add_Task(LED_WHITE_ON,0,250);
+	  if(timer1_flag == 1){
+		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+		setTimer1(200);
+	}
+  while (1)
+  {
+//	  SCH_Dispatch_Tasks();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

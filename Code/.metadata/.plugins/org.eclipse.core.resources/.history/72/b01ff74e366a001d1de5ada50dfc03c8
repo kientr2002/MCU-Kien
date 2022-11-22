@@ -6,8 +6,6 @@
  */
 #include "sch.h"
 #include "stdint.h"
-
-
 sTask SCH_tasks_G[SCH_MAX_TASKS];
 
 //SCH_Init
@@ -43,8 +41,7 @@ unsigned char SCH_Add_Task(void (* pFunction)(), unsigned int DELAY, unsigned in
     // First find a gap in the array (if there is one)
     while ((SCH_tasks_G[Index].pTask != 0) && (Index < SCH_MAX_TASKS))
     {
-    	//Notification with user: Program is adding function to scheduler.
-    	Index++;
+       Index++;
     }
     // Have we reached the end of the list?
     if (Index == SCH_MAX_TASKS)

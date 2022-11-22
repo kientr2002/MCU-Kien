@@ -98,7 +98,7 @@ int main(void)
   //Init a schedule
 	SCH_Init();
   //Add a task to repeatly call.
-	timer1_flag = 1;
+	setTimer1(100);
 	SCH_Add_Task(LED_RED_ON,5,50);
 	SCH_Add_Task(LED_YELLOW_ON,0,100);
 	SCH_Add_Task(LED_GREEN_ON,0,150);

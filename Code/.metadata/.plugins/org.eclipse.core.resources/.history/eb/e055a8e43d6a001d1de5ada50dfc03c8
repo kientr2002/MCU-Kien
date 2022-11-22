@@ -44,6 +44,8 @@ unsigned char SCH_Add_Task(void (* pFunction)(), unsigned int DELAY, unsigned in
     while ((SCH_tasks_G[Index].pTask != 0) && (Index < SCH_MAX_TASKS))
     {
     	//Notification with user: Program is adding function to scheduler.
+    	HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+    	setTimer1(200);
     	Index++;
     }
     // Have we reached the end of the list?
