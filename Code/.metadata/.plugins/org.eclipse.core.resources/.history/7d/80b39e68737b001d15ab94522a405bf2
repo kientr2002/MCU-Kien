@@ -78,7 +78,7 @@ uint8_t buffer_flag = 0;
 char str[30];
 int status_command;
 int status_UART;
-
+int print_flag = 0;
 void command_parser_fsm(){
 	switch(status_command){
 	case	INIT:

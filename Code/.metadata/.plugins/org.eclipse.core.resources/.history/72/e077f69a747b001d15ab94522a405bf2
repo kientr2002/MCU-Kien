@@ -69,6 +69,7 @@ uint8_t system_tutorial1[] = " -Enter !RST# to Run program.\r\n";
 uint8_t system_tutorial2[] = " -Enter !OK# to Confirm and End program.\r\n";
 uint8_t system_success[] = "\r\nSuccess!\r\n";
 uint8_t system_error[] = "\r\nError! Please enter again!\r\n";
+uint8_t counter = 0;
 
 
 uint8_t input = 0;
@@ -172,7 +173,10 @@ void command_parser_fsm(){
 void uart_communiation_fsm(){
 	switch(status_UART){
 	case INIT:
-		//nothing
+		if (timer1_flag == 1){
+			HAL_UART_Transmit(&huart2, (void*)counter, sizeof(counter), 1000);
+			setTimer1(1000);
+		}
 		break;
 	case RST:
 		if (timer1_flag == 1){
