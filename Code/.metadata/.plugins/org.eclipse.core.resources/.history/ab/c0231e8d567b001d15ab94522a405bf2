@@ -1,0 +1,31 @@
+/*
+ * global.h
+ *
+ *  Created on: Dec 13, 2022
+ *      Author: ADMIN
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include "command_parser_fsm.h"
+#include "uart_communiation_fsm.h"
+#include "main.h"
+#include "software_timer.h"
+#include "stdio.h"
+#include "string.h"
+
+#define INIT	0
+#define RST_1	1
+#define RST_2	2
+#define RST_3	3
+#define RST_4	4
+#define	START	5
+#define OK_1	6
+#define OK_2	7
+#define OK_3	8
+
+extern int status_command;
+extern int status_UART;
+
+#endif /* INC_GLOBAL_H_ */
