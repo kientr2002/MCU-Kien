@@ -75,7 +75,6 @@ uint8_t input = 0;
 uint8_t buffer[MAX_BUFFER_SIZE];
 uint8_t index_buffer = 0;
 uint8_t buffer_flag = 0;
-uint8_t success_flag = 0;
 char str[30];
 int status_command;
 int status_UART;
@@ -83,6 +82,7 @@ int status_UART;
 void command_parser_fsm(){
 	switch(status_command){
 	case	INIT:
+		HAL_UART_Transmit(&huart2, &input, 1, 1000);
 		if(input == '!'){
 			status_command = RST_1;
 		} else {
@@ -90,6 +90,7 @@ void command_parser_fsm(){
 		}
 		break;
 	case	RST_1:
+		HAL_UART_Transmit(&huart2, &input, 1, 1000);
 		if(input == 'R'){
 			status_command = RST_2;
 		} else {
@@ -98,6 +99,7 @@ void command_parser_fsm(){
 		}
 		break;
 	case	RST_2:
+		HAL_UART_Transmit(&huart2, &input, 1, 1000);
 		if(input == 'S'){
 			status_command = RST_3;
 		} else {
@@ -106,6 +108,7 @@ void command_parser_fsm(){
 		}
 		break;
 	case	RST_3:
+		HAL_UART_Transmit(&huart2, &input, 1, 1000);
 		if(input == 'T'){
 			status_command = RST_4;
 		} else {
@@ -114,6 +117,7 @@ void command_parser_fsm(){
 		}
 		break;
 	case	RST_4:
+		HAL_UART_Transmit(&huart2, &input, 1, 1000);
 		if(input == '#'){
 			status_command = START;
 			status_UART = RST;
@@ -123,6 +127,7 @@ void command_parser_fsm(){
 		}
 		break;
 	case	START:
+		HAL_UART_Transmit(&huart2, &input, 1, 1000);
 		if(input == '!'){
 			status_command = OK_1;
 		} else {
@@ -131,6 +136,8 @@ void command_parser_fsm(){
 		}
 		break;
 	case	OK_1:
+		HAL_UART_Transmit(&huart2, &input, 1, 1000);
+
 		if(input == 'O'){
 			status_command = OK_2;
 		} else {
@@ -139,6 +146,7 @@ void command_parser_fsm(){
 		}
 		break;
 	case	OK_2:
+		HAL_UART_Transmit(&huart2, &input, 1, 1000);
 		if(input == 'K'){
 			status_command = OK_3;
 		} else {
@@ -147,6 +155,7 @@ void command_parser_fsm(){
 		}
 		break;
 	case	OK_3:
+		HAL_UART_Transmit(&huart2, &input, 1, 1000);
 		if(input == '#'){
 			status_UART = OK;
 			status_command = INIT;
@@ -163,10 +172,7 @@ void command_parser_fsm(){
 void uart_communiation_fsm(){
 	switch(status_UART){
 	case INIT:
-		if(success_flag == 1){
-		HAL_UART_Transmit(&huart2, system_success, sizeof(system_success), 1000);
-			success_flag = 0;
-		}
+		//nothing
 		break;
 	case RST:
 		if (timer1_flag == 1){
@@ -176,10 +182,11 @@ void uart_communiation_fsm(){
 		}
 		break;
 	case OK:
-		HAL_Delay(3000);
-		success_flag = 1;
+		if(timer1_flag == 1){
+			setTimer1(3000);
+		}
+		HAL_UART_Transmit(&huart2, system_success, sizeof(system_success), 1000);
 		status_UART = INIT;
-		setTimer1(3000);
 		break;
 	default:
 		break;

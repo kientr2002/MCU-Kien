@@ -75,7 +75,6 @@ uint8_t input = 0;
 uint8_t buffer[MAX_BUFFER_SIZE];
 uint8_t index_buffer = 0;
 uint8_t buffer_flag = 0;
-uint8_t success_flag = 0;
 char str[30];
 int status_command;
 int status_UART;
@@ -163,10 +162,7 @@ void command_parser_fsm(){
 void uart_communiation_fsm(){
 	switch(status_UART){
 	case INIT:
-		if(success_flag == 1){
-		HAL_UART_Transmit(&huart2, system_success, sizeof(system_success), 1000);
-			success_flag = 0;
-		}
+		//nothing
 		break;
 	case RST:
 		if (timer1_flag == 1){
@@ -176,10 +172,8 @@ void uart_communiation_fsm(){
 		}
 		break;
 	case OK:
-		HAL_Delay(3000);
-		success_flag = 1;
+		HAL_UART_Transmit(&huart2, system_success, sizeof(system_success), 1000);
 		status_UART = INIT;
-		setTimer1(3000);
 		break;
 	default:
 		break;

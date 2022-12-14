@@ -176,10 +176,8 @@ void uart_communiation_fsm(){
 		}
 		break;
 	case OK:
-		HAL_Delay(3000);
-		success_flag = 1;
+
 		status_UART = INIT;
-		setTimer1(3000);
 		break;
 	default:
 		break;
